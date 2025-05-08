@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartManager {
-    private List<Product> cart = new ArrayList<>();
+    private List<Products> cart = new ArrayList<>();
 
     public boolean addProduct(Products product) {
-        for (Product p : cart) {
-            if (p.getId() == product.getId()) return false; // đã tồn tại
+        for (Products p : cart) {
+            if (p.getId() == product.getId()) return false;
         }
         cart.add(product);
         return true;
     }
 
-    public List<Product> getCart() {
+    public List<Products> getCart() {
         return cart;
     }
 
@@ -23,6 +23,6 @@ public class CartManager {
     }
 
     public double getTotalPrice() {
-        return cart.stream().mapToDouble(Product::getPrice).sum();
+        return cart.stream().mapToDouble(Products::getPrice).sum();
     }
 }
